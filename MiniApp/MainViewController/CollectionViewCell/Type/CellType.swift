@@ -10,4 +10,5 @@ import UIKit
 enum CellType: Int, CaseIterable {
     case mainTemp
     case weatherCell
+    case ticTacToe
 }

@@ -14,16 +14,18 @@ class MainViewController: UIViewController {
     private lazy var adapter = CollectionViewAdapter(collectionView: mainCollectionView)
     private lazy var mainCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.minimumLineSpacing = 4
+        collectionViewLayout.minimumLineSpacing = 20
         collectionViewLayout.scrollDirection = .vertical
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        let collection = UICollectionView(frame: view.bounds, collectionViewLayout: collectionViewLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.allowsMultipleSelection = true
         return collection
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .white
         addViews()
         setupConstraint()
         bindViewModel()
@@ -43,9 +45,11 @@ class MainViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel?.createData(complition: { result in
-            adapter.reload(result)
-        })
+        viewModel?.setupLocation()
+        viewModel?.addTicTacToe()
+        viewModel?.onDataReload = { [weak self] result in
+            self?.adapter.reload(result)
+        }
         
     }
 

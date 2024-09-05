@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol CellProtocol {}
+
 struct MainCellModel: Hashable {
     var type: CellType?
     var title: String?
+    let data: WeatherCellModel?
 }
 
-//struct WeatherCellModel: Hashable {
-//    var title: String?
-//}
+struct WeatherCellModel: Hashable {
+    var temp: Double?
+    var description: String?
+}
