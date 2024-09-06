@@ -21,20 +21,21 @@ final class MainViewModel: NSObject {
     private let geoCoder = CLGeocoder()
     
     func addTicTacToe() {
-        dataSource.append(MainCellModel(type: .ticTacToe, data: nil))
+        dataSource.append(MainCellModel(type: .ticTacToe, title: "Крестики/Нолики", data: nil))
         self.onDataReload?(self.dataSource)
     }
     
     private func getCurrentWeather(_ lat: String?, _ lon: String?) {
-        networkService.getCurrentWeather(lat: lat, lon: lon) { [weak self] result in
+        let request = WeatherRouter.getCurrentWeather(lat: lat, lon: lon).urlRequest
+        networkService.getCurrentWeather(request: request, lat: lat, lon: lon) { [weak self] result in
             guard let self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weather):
-//                    self.dataSource = weather
                     let temp = weather?.main?.temp
                     let description = weather?.weather?.first?.description
-                    self.dataSource.append(MainCellModel(type: .weatherCell, title: "Погода", data: WeatherCellModel(temp: temp, description: description)))
+                    let city = weather?.name
+                    self.dataSource.append(MainCellModel(type: .weatherCell, title: "Погода", data: WeatherCellModel(temp: temp, description: description, city: city)))
                     self.onDataReload?(self.dataSource)
                 case .failure(let error):
                     debugPrint(error)

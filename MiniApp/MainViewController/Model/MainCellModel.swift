@@ -18,4 +18,5 @@ struct MainCellModel: Hashable {
 struct WeatherCellModel: Hashable {
     var temp: Double?
     var description: String?
+    var city: String?
 }

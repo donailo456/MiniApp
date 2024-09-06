@@ -56,6 +56,12 @@ final class MainCollectionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        setupContentView()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        setupContentView()
     }
     
     @available(*, unavailable)

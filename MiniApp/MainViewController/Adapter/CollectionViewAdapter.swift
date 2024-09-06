@@ -34,6 +34,7 @@ final class CollectionViewAdapter: NSObject {
     private func registerCell() {
         self.collectionView?.register(MainCollectionCell.self, forCellWithReuseIdentifier: MainCollectionCell.identifire)
         self.collectionView?.register(WeatherCollectionCell.self, forCellWithReuseIdentifier: WeatherCollectionCell.identifire)
+        self.collectionView?.register(TicTacToeCollectionCell.self, forCellWithReuseIdentifier: TicTacToeCollectionCell.identifire)
     }
     
     private func applySnapshot(data: [MainCellModel]) {
@@ -75,7 +76,7 @@ extension CollectionViewAdapter {
                 cell.configure(with: vehicle)
                 return cell 
             case .ticTacToe:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionCell.identifire, for: indexPath) as? WeatherCollectionCell else { return UICollectionViewCell() }
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TicTacToeCollectionCell.identifire, for: indexPath) as? TicTacToeCollectionCell else { return UICollectionViewCell() }
                 cell.configure(with: vehicle)
                 return cell
             case .none:
@@ -107,7 +108,7 @@ extension CollectionViewAdapter: UICollectionViewDelegateFlowLayout {
 //    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = sizingCell.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: 0), withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+        let size = sizingCell.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 8), withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
         
         return size
     }

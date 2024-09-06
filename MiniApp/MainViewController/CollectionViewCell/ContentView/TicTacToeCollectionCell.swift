@@ -1,39 +1,42 @@
 //
-//  WeatherCollectionCell.swift
+//  TicTacToeCell.swift
 //  MiniApp
 //
-//  Created by Danil Komarov on 03.09.2024.
+//  Created by Danil Komarov on 06.09.2024.
 //
 
 import UIKit
-import WeatherSDK
+import TicTacToeSDK
 
-final class WeatherCollectionCell: UICollectionViewCell {
+final class TicTacToeCollectionCell: UICollectionViewCell {
     
-    static let identifire = "WeatherCollectionCell"
+    static let identifire = "TicTacToeCollectionCell"
     
     var selectedAnswer: ((String?) -> Void)?
     
-    private var weatherViewBottomAncor: NSLayoutConstraint?
-    private var weatherViewHeightAncor: NSLayoutConstraint?
+    private var ticViewBottomAncor: NSLayoutConstraint?
+    private var ticViewHeightAncor: NSLayoutConstraint?
     
     private lazy var cellHeader: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .green
         view.addSubview(titleLabel)
+        return view
+    }()
+    
+    private lazy var ticTacToeView: TicTacToeView = {
+        let view = TicTacToeView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var cellContent: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(weatherView)
-        return view
-    }()
-    
-    private lazy var weatherView: WeatherView = {
-        let view = WeatherView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ticTacToeView)
+        view.backgroundColor = .red
         return view
     }()
     
@@ -65,6 +68,7 @@ final class WeatherCollectionCell: UICollectionViewCell {
     }
     
     private func setupViews() {
+//        self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(cellHeader)
         self.contentView.addSubview(cellContent)
         setupConstraint()
@@ -73,10 +77,10 @@ final class WeatherCollectionCell: UICollectionViewCell {
     }
     
     private func setupConstraint() {
-        weatherViewBottomAncor = weatherView.bottomAnchor.constraint(equalTo: cellContent.bottomAnchor, constant: -10)
-        weatherViewHeightAncor = weatherView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 - UIScreen.main.bounds.height / 8 )
-        weatherViewBottomAncor?.priority = .defaultHigh
-        weatherViewHeightAncor?.priority = .defaultHigh
+        ticViewBottomAncor = ticTacToeView.bottomAnchor.constraint(equalTo: cellContent.bottomAnchor, constant: -10)
+        ticViewHeightAncor = ticTacToeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 - UIScreen.main.bounds.height / 8 )
+        ticViewBottomAncor?.priority = .defaultHigh
+        ticViewHeightAncor?.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
             cellHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -95,21 +99,21 @@ final class WeatherCollectionCell: UICollectionViewCell {
             cellContent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellContent.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            weatherView.topAnchor.constraint(equalTo: cellContent.topAnchor, constant: 5),
-            weatherView.trailingAnchor.constraint(equalTo: cellContent.trailingAnchor, constant: -10),
-            weatherView.leadingAnchor.constraint(equalTo: cellContent.leadingAnchor, constant: 10),
+            ticTacToeView.topAnchor.constraint(equalTo: cellContent.topAnchor, constant: 5),
+            ticTacToeView.trailingAnchor.constraint(equalTo: cellContent.trailingAnchor, constant: -10),
+            ticTacToeView.leadingAnchor.constraint(equalTo: cellContent.leadingAnchor, constant: 10),
         ])
     }
     
     private func updateCell() {
-        weatherViewBottomAncor?.isActive = isSelected
-        weatherViewHeightAncor?.isActive = isSelected
+        ticViewBottomAncor?.isActive = isSelected
+        ticViewHeightAncor?.isActive = isSelected
         
-        weatherView.setActiveConstraint(isSelected: !isSelected)
+        ticTacToeView.resetGame()
     }
     
     func configure(with viewModel: MainCellModel?) {
         titleLabel.text = viewModel?.title
-        weatherView.updateWeatherDisplay(temperature: Int(viewModel?.data?.temp ?? 0.0), description: viewModel?.data?.description ?? "", city: viewModel?.data?.city ?? "")
+//        weatherView.updateWeatherDisplay(temperature: Int(viewModel?.data?.temp ?? 0.0), description: viewModel?.data?.description ?? "")
     }
 }
