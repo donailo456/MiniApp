@@ -11,7 +11,7 @@ import WeatherSDK
 final class WeatherCollectionCell: UICollectionViewCell {
     
     static let identifire = "WeatherCollectionCell"
-    
+    weak var delegate: CustomCellDelegate?
     var selectedAnswer: ((String?) -> Void)?
     
     private var weatherViewBottomAncor: NSLayoutConstraint?
@@ -21,6 +21,7 @@ final class WeatherCollectionCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
+        view.addSubview(fullScreenButton)
         return view
     }()
     
@@ -44,8 +45,14 @@ final class WeatherCollectionCell: UICollectionViewCell {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return label
+    }()
+    
+    private lazy var fullScreenButton: UIButton = {
+       var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "FullScreen"), for: .normal)
+        return button
     }()
     
     override var isSelected: Bool {
@@ -64,12 +71,24 @@ final class WeatherCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(with viewModel: MainCellModel?) {
+        titleLabel.text = viewModel?.title
+        if let data = viewModel?.data {
+            switch data {
+            case .weather(let weatherData):
+                weatherView.updateWeatherDisplay(temperature: Int(weatherData.temp ?? 0.0), description: weatherData.description ?? "", city: weatherData.city ?? "")
+            default:
+                debugPrint("")
+            }
+        }
+    }
+    
     private func setupViews() {
         self.contentView.addSubview(cellHeader)
         self.contentView.addSubview(cellContent)
         setupConstraint()
         setupContentView()
-       
+        setTarget()
     }
     
     private func setupConstraint() {
@@ -90,6 +109,11 @@ final class WeatherCollectionCell: UICollectionViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: cellHeader.trailingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: cellHeader.bottomAnchor),
             
+            fullScreenButton.topAnchor.constraint(equalTo: cellHeader.topAnchor, constant: 15),
+            fullScreenButton.trailingAnchor.constraint(equalTo: cellHeader.trailingAnchor, constant: -15),
+            fullScreenButton.heightAnchor.constraint(equalToConstant: 25),
+            fullScreenButton.widthAnchor.constraint(equalToConstant: 25),
+            
             cellContent.topAnchor.constraint(equalTo: cellHeader.bottomAnchor),
             cellContent.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             cellContent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -108,8 +132,12 @@ final class WeatherCollectionCell: UICollectionViewCell {
         weatherView.setActiveConstraint(isSelected: !isSelected)
     }
     
-    func configure(with viewModel: MainCellModel?) {
-        titleLabel.text = viewModel?.title
-        weatherView.updateWeatherDisplay(temperature: Int(viewModel?.data?.temp ?? 0.0), description: viewModel?.data?.description ?? "", city: viewModel?.data?.city ?? "")
+    private func setTarget() {
+        fullScreenButton.addTarget(self, action: #selector(fullScreenAction), for: .touchUpInside)
+    }
+    
+    @objc
+    private func fullScreenAction() {
+        delegate?.didTapExpandButton(in: self)
     }
 }

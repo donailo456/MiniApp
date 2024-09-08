@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Alamofire
 
 final class NetworkService {
     
     let decoder = JSONDecoder()
     
-    func getCurrentWeather(request: URLRequest?, lat: String?, lon: String?, complition: @escaping (Result<CurrentWeather?, NetworkError>) -> Void) {
-        guard let request = request else { return }
+    func getCurrentWeather(request: URLRequestConvertible?, complition: @escaping (Result<CurrentWeather?, NetworkError>) -> Void) {
+        guard let request = request?.urlRequest else { return }
         URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
             if error != nil {
                 complition(.failure(.urlError))

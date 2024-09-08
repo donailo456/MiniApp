@@ -22,17 +22,29 @@ final class AppCoordinator: CoordinatorProtocol {
         showMainVC()
     }
     
-
-    
-
+    func startFullSreenView() {
+        debugPrint("Start FullSreenView")
+//        showFullScreenVC()
+    }
     
     private func showMainVC() {
         let mainVC = MainViewController()
-        let mainViewModel = MainViewModel.init()
+        let network = NetworkService()
+        let mainViewModel = MainViewModel.init(networkService: network)
         
         mainViewModel.coordinator = self
         mainVC.viewModel = mainViewModel
         
         navigationController.pushViewController(mainVC, animated: true)
+    }
+    
+    func showFullScreenVC(data: MainCellModel) {
+        let fullVC = FullScreenViewController()
+        let fullViewModel = FullScreenViewModel.init(dataMainVC: data)
+        
+        fullViewModel.coordinator = self
+        fullVC.viewModel = fullViewModel
+        
+        navigationController.pushViewController(fullVC, animated: true)
     }
 }

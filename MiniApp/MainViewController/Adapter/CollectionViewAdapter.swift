@@ -12,11 +12,13 @@ final class CollectionViewAdapter: NSObject {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, MainCellModel>
     typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MainCellModel>
     
+    var onFullScreen: ((MainCellModel?) -> Void)?
+    
     private weak var collectionView: UICollectionView?
     private var cellDataSource: [MainCellModel] = []
     private var dataSource: DataSource?
     private var snapshot = DataSourceSnapshot()
-    private let sizingCell = MainCollectionCell()
+    private let sizingCell = CityCollectionCell()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -32,7 +34,7 @@ final class CollectionViewAdapter: NSObject {
     }
     
     private func registerCell() {
-        self.collectionView?.register(MainCollectionCell.self, forCellWithReuseIdentifier: MainCollectionCell.identifire)
+        self.collectionView?.register(CityCollectionCell.self, forCellWithReuseIdentifier: CityCollectionCell.identifire)
         self.collectionView?.register(WeatherCollectionCell.self, forCellWithReuseIdentifier: WeatherCollectionCell.identifire)
         self.collectionView?.register(TicTacToeCollectionCell.self, forCellWithReuseIdentifier: TicTacToeCollectionCell.identifire)
     }
@@ -64,23 +66,23 @@ extension CollectionViewAdapter {
         dataSource = DataSource(collectionView: collectionView!, cellProvider: { (collectionView, indexPath, itemIdentifier) in
             let vehicle = self.cellDataSource[indexPath.row]
             switch vehicle.type {
-            case .mainTemp:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionCell.identifire, for: indexPath) as? MainCollectionCell else { return UICollectionViewCell() }
+            case .cityCell:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityCollectionCell.identifire, for: indexPath) as? CityCollectionCell else { return UICollectionViewCell() }
                 cell.configure(with: vehicle)
-//                cell.selectedAnswer = { [weak self] _ in
-//
-//                }
+                cell.delegate = self
                 return cell
             case .weatherCell:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionCell.identifire, for: indexPath) as? WeatherCollectionCell else { return UICollectionViewCell() }
                 cell.configure(with: vehicle)
-                return cell 
-            case .ticTacToe:
+                cell.delegate = self
+                return cell
+            case .ticTacToeCell:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TicTacToeCollectionCell.identifire, for: indexPath) as? TicTacToeCollectionCell else { return UICollectionViewCell() }
                 cell.configure(with: vehicle)
+                cell.delegate = self
                 return cell
             case .none:
-                return MainCollectionCell()
+                return CityCollectionCell()
             }
         })
     }
@@ -92,24 +94,27 @@ extension CollectionViewAdapter: UICollectionViewDelegate {
     
 }
 
+// MARK: - UICollectionViewDelegate
+
+extension CollectionViewAdapter: CustomCellDelegate {
+    func didTapExpandButton(in cell: UICollectionViewCell) {
+        guard let indexPath = collectionView?.indexPath(for: cell) else { return }
+        onFullScreen?(cellDataSource[indexPath.row])
+    }
+    
+    
+}
+
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension CollectionViewAdapter: UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: collectionView.bounds.width-32, height: collectionView.bounds.height / 8)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-//    }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        5
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 16, left: .zero, bottom: .zero, right: .zero)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = sizingCell.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: collectionView.bounds.height / 8), withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
-        
+        let size = sizingCell.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width - 32, height: collectionView.bounds.height / 8), withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
         return size
     }
     
@@ -124,6 +129,5 @@ extension CollectionViewAdapter: UICollectionViewDelegateFlowLayout {
         collectionView.performBatchUpdates(nil)
         return true
     }
-    
 }
 

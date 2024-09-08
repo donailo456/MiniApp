@@ -6,7 +6,17 @@ public class TicTacToeView: UIView {
     private var currentPlayer: String = "X"
     private let lineWidth: CGFloat = 4.0
     private var gameEnded: Bool = false
-
+    private var markSize: CGFloat?
+    
+    init(markSize: CGFloat?) {
+        self.markSize = markSize
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func draw(_ rect: CGRect) {
         drawGrid()
         drawMarks()
@@ -55,7 +65,7 @@ public class TicTacToeView: UIView {
         paragraphStyle.alignment = .center
 
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 50),
+            .font: UIFont.systemFont(ofSize: markSize ?? 50),
             .paragraphStyle: paragraphStyle,
             .foregroundColor: UIColor.black
         ]
@@ -80,6 +90,7 @@ public class TicTacToeView: UIView {
             if checkForWin() {
                 gameEnded = true
                 print("\(currentPlayer) wins!")
+                showToast(message: "\(currentPlayer) wins!", duration: 0.3)
                 resetGame()
             } else if isDraw() {
                 gameEnded = true

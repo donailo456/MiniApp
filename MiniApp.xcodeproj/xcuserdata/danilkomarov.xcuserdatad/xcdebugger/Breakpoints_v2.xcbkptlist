@@ -14,8 +14,8 @@
             filePath = "MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "reload(_:)"
             landmarkType = "7">
             <Locations>
@@ -62,73 +62,9 @@
             filePath = "MiniApp/MainViewController/CollectionViewCell/ContentView/MainCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "updateCell()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DEB95808-12AD-4191-895E-4DD20CF5A2BE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiniApp/MainViewController/View/MainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "bindViewModel()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DEB95808-12AD-4191-895E-4DD20CF5A2BE - 4d819f8cba94389a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;MiniApp.MainCellModel&gt;) -&gt; () in MiniApp.MainViewController.bindViewModel() -&gt; ()"
-                  moduleName = "MiniApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewController/View/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "DEB95808-12AD-4191-895E-4DD20CF5A2BE - 4d819f8cba94389a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;MiniApp.MainCellModel&gt;) -&gt; () in MiniApp.MainViewController.bindViewModel() -&gt; ()"
-                  moduleName = "MiniApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewController/View/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D43251CD-9BEF-434B-B3D8-8D419F92C47B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiniApp/MainViewController/CollectionViewCell/ContentView/WeatherCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "configure(with:)"
+            landmarkName = "updateCell()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,8 +94,8 @@
             filePath = "MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "configureCollectionViewDataSource()"
             landmarkType = "7">
          </BreakpointContent>
@@ -167,15 +103,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C42652B8-8A20-4C36-B909-F5DEEF3FA68A"
+            uuid = "560F577B-34E6-4C17-B983-EEFFFCAEB5F4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniApp/MainViewModels/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "requestWeatherForLocation(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "560F577B-34E6-4C17-B983-EEFFFCAEB5F4 - e86f05eaf5220d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MiniApp.MainViewModel.requestWeatherForLocation(__C.CLLocation) -&gt; ()"
+                  moduleName = "MiniApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewModels/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "560F577B-34E6-4C17-B983-EEFFFCAEB5F4 - e86f05eaf5220d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MiniApp.MainViewModel.requestWeatherForLocation(__C.CLLocation) -&gt; ()"
+                  moduleName = "MiniApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewModels/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF3FC0BA-54CF-4199-A955-81AC1FA7BBBF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiniApp/MainViewModels/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "getCurrentWeather(_:_:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -8,7 +8,7 @@
 import UIKit
 
 enum CellType: Int, CaseIterable {
-    case mainTemp
+    case cityCell
     case weatherCell
-    case ticTacToe
+    case ticTacToeCell
 }

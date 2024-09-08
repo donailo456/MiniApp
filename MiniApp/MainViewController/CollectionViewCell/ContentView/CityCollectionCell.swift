@@ -1,21 +1,26 @@
 //
-//  TicTacToeCell.swift
+//  MainCollectionCell.swift
 //  MiniApp
 //
-//  Created by Danil Komarov on 06.09.2024.
+//  Created by Danil Komarov on 03.09.2024.
 //
 
 import UIKit
-import TicTacToeSDK
 
-final class TicTacToeCollectionCell: UICollectionViewCell {
+final class CityCollectionCell: UICollectionViewCell {
     
-    static let identifire = "TicTacToeCollectionCell"
+    static let identifire = "MainCollectionViewCell"
     weak var delegate: CustomCellDelegate?
     var selectedAnswer: ((String?) -> Void)?
     
-    private var ticViewBottomAncor: NSLayoutConstraint?
-    private var ticViewHeightAncor: NSLayoutConstraint?
+    private var labelBottomAnchor: NSLayoutConstraint?
+    private var labelHeightAnchor: NSLayoutConstraint?
+    
+    override var isSelected: Bool {
+        didSet {
+            updateCell()
+        }
+    }
     
     private lazy var cellHeader: UIView = {
         let view = UIView()
@@ -25,17 +30,10 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var ticTacToeView: TicTacToeView = {
-        let view = TicTacToeView(markSize: 50)
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private lazy var cellContent: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(ticTacToeView)
+        view.addSubview(cityLabel)
         return view
     }()
     
@@ -49,6 +47,17 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .black
+        label.text = "Москва"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var fullScreenButton: UIButton = {
        var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -56,15 +65,15 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
         return button
     }()
     
-    override var isSelected: Bool {
-        didSet {
-            updateCell()
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        setupContentView()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        setupContentView()
     }
     
     @available(*, unavailable)
@@ -74,6 +83,13 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
     
     func configure(with viewModel: MainCellModel?) {
         titleLabel.text = viewModel?.title
+        let data = viewModel?.data
+        switch data {
+        case .city(let cityModel):
+            cityLabel.text = cityModel.city
+        default:
+            debugPrint("")
+        }
     }
     
     private func setupViews() {
@@ -85,10 +101,10 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
     }
     
     private func setupConstraint() {
-        ticViewBottomAncor = ticTacToeView.bottomAnchor.constraint(equalTo: cellContent.bottomAnchor, constant: -10)
-        ticViewHeightAncor = ticTacToeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 - UIScreen.main.bounds.height / 8 )
-        ticViewBottomAncor?.priority = .defaultHigh
-        ticViewHeightAncor?.priority = .defaultHigh
+        labelBottomAnchor = cityLabel.bottomAnchor.constraint(equalTo: cellContent.bottomAnchor, constant: -10)
+        labelHeightAnchor = cityLabel.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 - UIScreen.main.bounds.height / 8 )
+        labelBottomAnchor?.priority = .defaultHigh
+        labelHeightAnchor?.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
             cellHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -99,7 +115,7 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: cellHeader.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: cellHeader.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: fullScreenButton.trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: cellHeader.trailingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: cellHeader.bottomAnchor),
             
             fullScreenButton.topAnchor.constraint(equalTo: cellHeader.topAnchor, constant: 15),
@@ -112,17 +128,15 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
             cellContent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellContent.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            ticTacToeView.topAnchor.constraint(equalTo: cellContent.topAnchor, constant: 5),
-            ticTacToeView.trailingAnchor.constraint(equalTo: cellContent.trailingAnchor, constant: -10),
-            ticTacToeView.leadingAnchor.constraint(equalTo: cellContent.leadingAnchor, constant: 10),
+            cityLabel.topAnchor.constraint(equalTo: cellContent.topAnchor, constant: 5),
+            cityLabel.trailingAnchor.constraint(equalTo: cellContent.trailingAnchor, constant: -10),
+            cityLabel.leadingAnchor.constraint(equalTo: cellContent.leadingAnchor, constant: 10),
         ])
     }
     
     private func updateCell() {
-        ticViewBottomAncor?.isActive = isSelected
-        ticViewHeightAncor?.isActive = isSelected
-        
-        ticTacToeView.resetGame()
+        labelBottomAnchor?.isActive = isSelected
+        labelHeightAnchor?.isActive = isSelected
     }
     
     private func setTarget() {

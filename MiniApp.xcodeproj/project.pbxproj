@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E44298332C8A0E7E006B30A0 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44298312C8A0E7E006B30A0 /* WeatherView.swift */; };
-		E44298362C8A0F69006B30A0 /* WeatherSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E44298352C8A0F69006B30A0 /* WeatherSDK */; };
 		E44298382C8A2110006B30A0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44298372C8A2110006B30A0 /* NetworkService.swift */; };
 		E442983B2C8A211F006B30A0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442983A2C8A211F006B30A0 /* NetworkError.swift */; };
 		E442983D2C8A2173006B30A0 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442983C2C8A2173006B30A0 /* CurrentWeather.swift */; };
@@ -21,19 +20,23 @@
 		E44827E22C87574600E35A80 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827E12C87574600E35A80 /* MainViewModel.swift */; };
 		E44827E62C8757DE00E35A80 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827E52C8757DE00E35A80 /* CollectionViewAdapter.swift */; };
 		E44827E92C8757ED00E35A80 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827E82C8757ED00E35A80 /* Section.swift */; };
-		E44827EB2C87581300E35A80 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827EA2C87581300E35A80 /* MainCollectionCell.swift */; };
+		E44827EB2C87581300E35A80 /* CityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827EA2C87581300E35A80 /* CityCollectionCell.swift */; };
 		E44827EE2C87584C00E35A80 /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827ED2C87584C00E35A80 /* MainCellModel.swift */; };
 		E44827F32C87A6E100E35A80 /* WeatherCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827F22C87A6E100E35A80 /* WeatherCollectionCell.swift */; };
 		E44827F52C87A71100E35A80 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44827F42C87A71100E35A80 /* CellType.swift */; };
 		E492531E2C8BA25F00549232 /* TicTacToeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492531C2C8BA25F00549232 /* TicTacToeView.swift */; };
-		E49253212C8BA2D700549232 /* TicTacToeSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E49253202C8BA2D700549232 /* TicTacToeSDK */; };
 		E49253232C8BA30D00549232 /* TicTacToeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253222C8BA30D00549232 /* TicTacToeCollectionCell.swift */; };
 		E49253252C8BA61500549232 /* ExtensionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253242C8BA61500549232 /* ExtensionCell.swift */; };
 		E492532B2C8BA8DA00549232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492532A2C8BA8DA00549232 /* Constants.swift */; };
 		E492532D2C8BA97400549232 /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492532C2C8BA97400549232 /* WeatherRouter.swift */; };
 		E49253312C8BAA5600549232 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E49253302C8BAA5600549232 /* Alamofire */; };
-		E49253332C8BAA5600549232 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E49253322C8BAA5600549232 /* AlamofireDynamic */; };
 		E49253352C8BAA7700549232 /* RouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253342C8BAA7700549232 /* RouterInterface.swift */; };
+		E492533A2C8C72A800549232 /* TicTacToeSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E49253392C8C72A800549232 /* TicTacToeSDK */; };
+		E492533C2C8C72F300549232 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492533B2C8C72F300549232 /* Extension.swift */; };
+		E492533F2C8C733900549232 /* WeatherSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E492533E2C8C733900549232 /* WeatherSDK */; };
+		E49253412C8CD4D400549232 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253402C8CD4D400549232 /* FullScreenViewController.swift */; };
+		E49253462C8CD50000549232 /* FullScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253452C8CD50000549232 /* FullScreenViewModel.swift */; };
+		E49253492C8CEAC900549232 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253482C8CEAC900549232 /* CustomCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +57,7 @@
 		E44827E12C87574600E35A80 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		E44827E52C8757DE00E35A80 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
 		E44827E82C8757ED00E35A80 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		E44827EA2C87581300E35A80 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
+		E44827EA2C87581300E35A80 /* CityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionCell.swift; sourceTree = "<group>"; };
 		E44827ED2C87584C00E35A80 /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
 		E44827F22C87A6E100E35A80 /* WeatherCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionCell.swift; sourceTree = "<group>"; };
 		E44827F42C87A71100E35A80 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
@@ -65,6 +68,10 @@
 		E492532A2C8BA8DA00549232 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E492532C2C8BA97400549232 /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
 		E49253342C8BAA7700549232 /* RouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterInterface.swift; sourceTree = "<group>"; };
+		E492533B2C8C72F300549232 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E49253402C8CD4D400549232 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		E49253452C8CD50000549232 /* FullScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewModel.swift; sourceTree = "<group>"; };
+		E49253482C8CEAC900549232 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E492533F2C8C733900549232 /* WeatherSDK in Frameworks */,
 				E49253312C8BAA5600549232 /* Alamofire in Frameworks */,
-				E49253332C8BAA5600549232 /* AlamofireDynamic in Frameworks */,
-				E49253212C8BA2D700549232 /* TicTacToeSDK in Frameworks */,
-				E44298362C8A0F69006B30A0 /* WeatherSDK in Frameworks */,
+				E492533A2C8C72A800549232 /* TicTacToeSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,11 +156,11 @@
 			children = (
 				E44827D92C8756A400E35A80 /* Application */,
 				E44827DE2C87570C00E35A80 /* Coordinator */,
-				E44827E32C87574E00E35A80 /* MainViewModels */,
 				E44827DB2C8756F200E35A80 /* MainViewController */,
 				E44827DA2C8756B100E35A80 /* SupportingFiles */,
 				E44298392C8A2112006B30A0 /* Network */,
 				E49253262C8BA63600549232 /* Extension */,
+				E49253422C8CD4D700549232 /* FullScreenViewController */,
 			);
 			path = MiniApp;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 		E44827DB2C8756F200E35A80 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E44827E32C87574E00E35A80 /* MainViewModels */,
 				E44827E42C8757C500E35A80 /* View */,
 				E44827E72C8757E000E35A80 /* Adapter */,
 				E44827EC2C87581600E35A80 /* CollectionViewCell */,
@@ -228,6 +235,7 @@
 			children = (
 				E44827F92C8850D200E35A80 /* ContentView */,
 				E44827F82C8850C800E35A80 /* Type */,
+				E492534A2C8CEACC00549232 /* Delegate */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -251,7 +259,7 @@
 		E44827F92C8850D200E35A80 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
-				E44827EA2C87581300E35A80 /* MainCollectionCell.swift */,
+				E44827EA2C87581300E35A80 /* CityCollectionCell.swift */,
 				E44827F22C87A6E100E35A80 /* WeatherCollectionCell.swift */,
 				E49253222C8BA30D00549232 /* TicTacToeCollectionCell.swift */,
 			);
@@ -271,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				E492531C2C8BA25F00549232 /* TicTacToeView.swift */,
+				E492533B2C8C72F300549232 /* Extension.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -292,6 +301,39 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
+		E49253422C8CD4D700549232 /* FullScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E49253472C8CD51000549232 /* ViewModel */,
+				E49253432C8CD4E900549232 /* View */,
+			);
+			path = FullScreenViewController;
+			sourceTree = "<group>";
+		};
+		E49253432C8CD4E900549232 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E49253402C8CD4D400549232 /* FullScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E49253472C8CD51000549232 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E49253452C8CD50000549232 /* FullScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E492534A2C8CEACC00549232 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E49253482C8CEAC900549232 /* CustomCellDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,10 +351,9 @@
 			);
 			name = MiniApp;
 			packageProductDependencies = (
-				E44298352C8A0F69006B30A0 /* WeatherSDK */,
-				E49253202C8BA2D700549232 /* TicTacToeSDK */,
 				E49253302C8BAA5600549232 /* Alamofire */,
-				E49253322C8BAA5600549232 /* AlamofireDynamic */,
+				E49253392C8C72A800549232 /* TicTacToeSDK */,
+				E492533E2C8C733900549232 /* WeatherSDK */,
 			);
 			productName = MiniApp;
 			productReference = E44827C22C87565600E35A80 /* MiniApp.app */;
@@ -343,9 +384,9 @@
 			);
 			mainGroup = E44827B92C87565600E35A80;
 			packageReferences = (
-				E44298342C8A0F69006B30A0 /* XCLocalSwiftPackageReference "WeatherSDK" */,
-				E492531F2C8BA2D700549232 /* XCLocalSwiftPackageReference "TicTacToeSDK" */,
 				E492532F2C8BAA5600549232 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E49253382C8C72A800549232 /* XCLocalSwiftPackageReference "TicTacToeSDK" */,
+				E492533D2C8C733900549232 /* XCLocalSwiftPackageReference "WeatherSDK" */,
 			);
 			productRefGroup = E44827C32C87565600E35A80 /* Products */;
 			projectDirPath = "";
@@ -376,20 +417,24 @@
 				E44827E62C8757DE00E35A80 /* CollectionViewAdapter.swift in Sources */,
 				E492532B2C8BA8DA00549232 /* Constants.swift in Sources */,
 				E442983D2C8A2173006B30A0 /* CurrentWeather.swift in Sources */,
+				E49253462C8CD50000549232 /* FullScreenViewModel.swift in Sources */,
 				E492531E2C8BA25F00549232 /* TicTacToeView.swift in Sources */,
 				E49253352C8BAA7700549232 /* RouterInterface.swift in Sources */,
 				E442983B2C8A211F006B30A0 /* NetworkError.swift in Sources */,
 				E44827E22C87574600E35A80 /* MainViewModel.swift in Sources */,
 				E44827E02C87572000E35A80 /* AppCoordinator.swift in Sources */,
+				E49253412C8CD4D400549232 /* FullScreenViewController.swift in Sources */,
 				E44827E92C8757ED00E35A80 /* Section.swift in Sources */,
 				E49253252C8BA61500549232 /* ExtensionCell.swift in Sources */,
-				E44827EB2C87581300E35A80 /* MainCollectionCell.swift in Sources */,
+				E44827EB2C87581300E35A80 /* CityCollectionCell.swift in Sources */,
 				E49253232C8BA30D00549232 /* TicTacToeCollectionCell.swift in Sources */,
 				E492532D2C8BA97400549232 /* WeatherRouter.swift in Sources */,
 				E44827EE2C87584C00E35A80 /* MainCellModel.swift in Sources */,
 				E44827F32C87A6E100E35A80 /* WeatherCollectionCell.swift in Sources */,
+				E492533C2C8C72F300549232 /* Extension.swift in Sources */,
 				E44298332C8A0E7E006B30A0 /* WeatherView.swift in Sources */,
 				E44827CA2C87565600E35A80 /* MainViewController.swift in Sources */,
+				E49253492C8CEAC900549232 /* CustomCellDelegate.swift in Sources */,
 				E44827F52C87A71100E35A80 /* CellType.swift in Sources */,
 				E44827C62C87565600E35A80 /* AppDelegate.swift in Sources */,
 				E44298382C8A2110006B30A0 /* NetworkService.swift in Sources */,
@@ -608,13 +653,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		E44298342C8A0F69006B30A0 /* XCLocalSwiftPackageReference "WeatherSDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = WeatherSDK;
-		};
-		E492531F2C8BA2D700549232 /* XCLocalSwiftPackageReference "TicTacToeSDK" */ = {
+		E49253382C8C72A800549232 /* XCLocalSwiftPackageReference "TicTacToeSDK" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = TicTacToeSDK;
+		};
+		E492533D2C8C733900549232 /* XCLocalSwiftPackageReference "WeatherSDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = WeatherSDK;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -630,23 +675,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E44298352C8A0F69006B30A0 /* WeatherSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = WeatherSDK;
-		};
-		E49253202C8BA2D700549232 /* TicTacToeSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TicTacToeSDK;
-		};
 		E49253302C8BAA5600549232 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E492532F2C8BAA5600549232 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		E49253322C8BAA5600549232 /* AlamofireDynamic */ = {
+		E49253392C8C72A800549232 /* TicTacToeSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E492532F2C8BAA5600549232 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			productName = TicTacToeSDK;
+		};
+		E492533E2C8C733900549232 /* WeatherSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeatherSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

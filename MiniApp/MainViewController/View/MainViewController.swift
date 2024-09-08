@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     var viewModel: MainViewModel?
     
@@ -31,6 +31,12 @@ class MainViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        mainCollectionView.collectionViewLayout.invalidateLayout()  // Пересчитываем макет коллекции при изменении ориентации
+    }
+    
     private func addViews() {
         view.addSubview(mainCollectionView)
     }
@@ -45,14 +51,17 @@ class MainViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel?.setupLocation()
-        viewModel?.addTicTacToe()
+        viewModel?.dataRelaod()
+        
         viewModel?.onDataReload = { [weak self] result in
             self?.adapter.reload(result)
         }
         
+        adapter.onFullScreen = { [weak self] data in
+            guard let data = data else { return }
+            self?.viewModel?.showFullScreenVC(data: data)
+        }
+        
     }
-
-
 }
 
