@@ -49,8 +49,8 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var fullScreenButton: UIButton = {
-       var button = UIButton()
+    private lazy var fullScreenButton: FullScreenButton = {
+       var button = FullScreenButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "FullScreen"), for: .normal)
         return button

@@ -13,7 +13,6 @@ final class MainViewModel: NSObject {
     var onDataReload: (([MainCellModel]) -> Void)?
     var onCity: ((String?) -> Void)?
 
-    
     private var dataSource: [MainCellModel] = []
     private var networkService = NetworkService()
     private let locationManager = CLLocationManager()

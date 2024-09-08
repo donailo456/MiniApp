@@ -49,7 +49,7 @@ public final class WeatherView: UIView {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Max. ↑: 35°C"
-        label.font = .systemFont(ofSize: 25, weight: .bold)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white
@@ -60,7 +60,7 @@ public final class WeatherView: UIView {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Min. ↓: 25°C"
-        label.font = .systemFont(ofSize: 25, weight: .bold)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white

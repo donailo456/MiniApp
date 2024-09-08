@@ -38,6 +38,7 @@
 		E49253462C8CD50000549232 /* FullScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253452C8CD50000549232 /* FullScreenViewModel.swift */; };
 		E49253492C8CEAC900549232 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253482C8CEAC900549232 /* CustomCellDelegate.swift */; };
 		E492534C2C8DBBCE00549232 /* ExtensionCollor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492534B2C8DBBCE00549232 /* ExtensionCollor.swift */; };
+		E49253512C8DDD2800549232 /* FullScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253502C8DDD2800549232 /* FullScreenButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		E49253452C8CD50000549232 /* FullScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewModel.swift; sourceTree = "<group>"; };
 		E49253482C8CEAC900549232 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 		E492534B2C8DBBCE00549232 /* ExtensionCollor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollor.swift; sourceTree = "<group>"; };
+		E49253502C8DDD2800549232 /* FullScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				E44827DA2C8756B100E35A80 /* SupportingFiles */,
 				E44298392C8A2112006B30A0 /* Network */,
 				E49253262C8BA63600549232 /* Extension */,
+				E49253522C8DDD2B00549232 /* CustomObject */,
 			);
 			path = MiniApp;
 			sourceTree = "<group>";
@@ -337,6 +340,14 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		E49253522C8DDD2B00549232 /* CustomObject */ = {
+			isa = PBXGroup;
+			children = (
+				E49253502C8DDD2800549232 /* FullScreenButton.swift */,
+			);
+			path = CustomObject;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +443,7 @@
 				E49253252C8BA61500549232 /* ExtensionCell.swift in Sources */,
 				E44827EB2C87581300E35A80 /* CityCollectionCell.swift in Sources */,
 				E49253232C8BA30D00549232 /* TicTacToeCollectionCell.swift in Sources */,
+				E49253512C8DDD2800549232 /* FullScreenButton.swift in Sources */,
 				E492532D2C8BA97400549232 /* WeatherRouter.swift in Sources */,
 				E44827EE2C87584C00E35A80 /* MainCellModel.swift in Sources */,
 				E44827F32C87A6E100E35A80 /* WeatherCollectionCell.swift in Sources */,
