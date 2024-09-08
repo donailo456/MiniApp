@@ -1,12 +1,13 @@
 import UIKit
 
-public class TicTacToeView: UIView {
+public final class TicTacToeView: UIView {
 
     private var grid: [[String]] = [["", "", ""], ["", "", ""], ["", "", ""]]
     private var currentPlayer: String = "X"
     private let lineWidth: CGFloat = 4.0
     private var gameEnded: Bool = false
     private var markSize: CGFloat?
+    private var colorLine: UIColor = .black
     
     init(markSize: CGFloat?) {
         self.markSize = markSize
@@ -20,6 +21,45 @@ public class TicTacToeView: UIView {
     public override func draw(_ rect: CGRect) {
         drawGrid()
         drawMarks()
+    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        if gameEnded { return }
+
+        let location = touch.location(in: self)
+        let cellWidth = bounds.width / 3
+        let cellHeight = bounds.height / 3
+
+        let row = Int(location.y / cellHeight)
+        let col = Int(location.x / cellWidth)
+
+        if grid[row][col] == "" {
+            grid[row][col] = currentPlayer
+            if checkForWin() {
+                gameEnded = true
+                showToast(message: "\(currentPlayer) wins!", duration: 0.3)
+                resetGame()
+            } else if isDraw() {
+                gameEnded = true
+                showToast(message: "Draw!", duration: 0.3)
+                resetGame()
+            } else {
+                currentPlayer = (currentPlayer == "X") ? "O" : "X"
+            }
+            setNeedsDisplay()
+        }
+    }
+    
+    public func resetGame() {
+        grid = [["", "", ""], ["", "", ""], ["", "", ""]]
+        currentPlayer = "X"
+        gameEnded = false
+        setNeedsDisplay()
+    }
+    
+    public func setupFullScreenView(color: UIColor) {
+        colorLine = color
     }
 
     private func drawGrid() {
@@ -41,7 +81,7 @@ public class TicTacToeView: UIView {
         path.addLine(to: CGPoint(x: size.width, y: 2 * size.height / 3))
 
         path.lineWidth = lineWidth
-        UIColor.black.setStroke()
+        colorLine.setStroke()
         path.stroke()
     }
 
@@ -67,40 +107,11 @@ public class TicTacToeView: UIView {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: markSize ?? 50),
             .paragraphStyle: paragraphStyle,
-            .foregroundColor: UIColor.black
+            .foregroundColor: colorLine
         ]
 
         let attributedString = NSAttributedString(string: mark, attributes: attributes)
         attributedString.draw(in: markRect)
-    }
-
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        if gameEnded { return }
-
-        let location = touch.location(in: self)
-        let cellWidth = bounds.width / 3
-        let cellHeight = bounds.height / 3
-
-        let row = Int(location.y / cellHeight)
-        let col = Int(location.x / cellWidth)
-
-        if grid[row][col] == "" {
-            grid[row][col] = currentPlayer
-            if checkForWin() {
-                gameEnded = true
-                print("\(currentPlayer) wins!")
-                showToast(message: "\(currentPlayer) wins!", duration: 0.3)
-                resetGame()
-            } else if isDraw() {
-                gameEnded = true
-                print("Draw!")
-                resetGame()
-            } else {
-                currentPlayer = (currentPlayer == "X") ? "O" : "X"
-            }
-            setNeedsDisplay()
-        }
     }
 
     private func checkForWin() -> Bool {
@@ -126,12 +137,5 @@ public class TicTacToeView: UIView {
             }
         }
         return true
-    }
-
-    func resetGame() {
-        grid = [["", "", ""], ["", "", ""], ["", "", ""]]
-        currentPlayer = "X"
-        gameEnded = false
-        setNeedsDisplay()
     }
 }

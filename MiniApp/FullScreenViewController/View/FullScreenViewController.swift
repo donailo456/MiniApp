@@ -23,14 +23,15 @@ final class FullScreenViewController: UIViewController {
     private lazy var ticTacToeView: TicTacToeView = {
         let view = TicTacToeView(markSize: view.bounds.height / 3 - 200)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: "FFA000")
+        view.setupFullScreenView(color: .white)
         return view
     }()
     
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.textColor = .black
+        label.textColor = .white
         label.text = "Москва"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20, weight: .bold)

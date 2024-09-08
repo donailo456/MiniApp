@@ -5,7 +5,7 @@ public final class WeatherView: UIView {
     private lazy var temperatureLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "33"
+        label.text = "33°C"
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -15,7 +15,7 @@ public final class WeatherView: UIView {
     private lazy var descriptionLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Sunny"
+        label.text = "Ясно"
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -25,7 +25,7 @@ public final class WeatherView: UIView {
     private lazy var cityLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Moscow"
+        label.text = "Москва"
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -48,7 +48,7 @@ public final class WeatherView: UIView {
     private lazy var maxTempLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "33"
+        label.text = "Max. ↑: 35°C"
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -59,7 +59,7 @@ public final class WeatherView: UIView {
     private lazy var minTempLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "25"
+        label.text = "Min. ↓: 25°C"
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
