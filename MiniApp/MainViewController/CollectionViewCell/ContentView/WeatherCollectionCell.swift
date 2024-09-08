@@ -10,9 +10,13 @@ import WeatherSDK
 
 final class WeatherCollectionCell: UICollectionViewCell {
     
+    // MARK: - Internal properties
+    
     static let identifire = "WeatherCollectionCell"
     weak var delegate: CustomCellDelegate?
     var selectedAnswer: ((String?) -> Void)?
+    
+    // MARK: - Private properties
     
     private var weatherViewBottomAncor: NSLayoutConstraint?
     private var weatherViewHeightAncor: NSLayoutConstraint?
@@ -71,6 +75,8 @@ final class WeatherCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Internal Methods
+    
     func configure(with viewModel: MainCellModel?) {
         titleLabel.text = viewModel?.type?.title
         if let data = viewModel?.data {
@@ -81,6 +87,8 @@ final class WeatherCollectionCell: UICollectionViewCell {
             }
         }
     }
+    
+    // MARK: - Private Methods
     
     private func setupViews() {
         self.contentView.addSubview(cellHeader)

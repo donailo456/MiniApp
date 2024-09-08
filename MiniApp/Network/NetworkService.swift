@@ -10,7 +10,11 @@ import Alamofire
 
 final class NetworkService {
     
-    let decoder = JSONDecoder()
+    // MARK: - Private properties
+    
+    private let decoder = JSONDecoder()
+    
+    // MARK: - Internal Methods
     
     func getCurrentWeather(request: URLRequestConvertible?, complition: @escaping (Result<CurrentWeather?, NetworkError>) -> Void) {
         guard let request = request?.urlRequest else { return }
@@ -29,6 +33,4 @@ final class NetworkService {
             
         } .resume()
     }
-    
-    
 }

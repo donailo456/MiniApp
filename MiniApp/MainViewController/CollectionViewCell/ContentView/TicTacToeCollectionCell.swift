@@ -10,9 +10,14 @@ import TicTacToeSDK
 
 final class TicTacToeCollectionCell: UICollectionViewCell {
     
+    // MARK: - Internal properties
+    
     static let identifire = "TicTacToeCollectionCell"
+    
     weak var delegate: CustomCellDelegate?
     var selectedAnswer: ((String?) -> Void)?
+    
+    // MARK: - Private properties
     
     private var ticViewBottomAncor: NSLayoutConstraint?
     private var ticViewHeightAncor: NSLayoutConstraint?
@@ -72,9 +77,13 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Internal Methods
+    
     func configure(with viewModel: MainCellModel?) {
         titleLabel.text = viewModel?.type?.title
     }
+    
+    // MARK: - Private Methods
     
     private func setupViews() {
         self.contentView.addSubview(cellHeader)

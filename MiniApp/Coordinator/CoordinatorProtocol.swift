@@ -13,5 +13,5 @@ protocol CoordinatorProtocol {
     var navigationController: UINavigationController { get set }
     
     func start()
-    func startFullSreenView()
+    func showFullScreenVC(data: MainCellModel)
 }

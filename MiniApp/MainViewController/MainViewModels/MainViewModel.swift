@@ -9,9 +9,14 @@ import UIKit
 import CoreLocation
 
 final class MainViewModel: NSObject {
+    
+    // MARK: - Internal properties
+    
     weak var coordinator: AppCoordinator!
     var onDataReload: (([MainCellModel]) -> Void)?
     var onCity: ((String?) -> Void)?
+    
+    // MARK: - Private properties
 
     private var dataSource: [MainCellModel] = []
     private var networkService = NetworkService()
@@ -23,6 +28,8 @@ final class MainViewModel: NSObject {
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
+    
+    // MARK: - Internal Methods
     
     func dataRelaod() {
         setupLocation()
@@ -40,6 +47,8 @@ final class MainViewModel: NSObject {
     func showFullScreenVC(data: MainCellModel) {
         coordinator.showFullScreenVC(data: data)
     }
+    
+    // MARK: - Private Methods
     
     private func getCurrentWeather(_ lat: String?, _ lon: String?) {
         let request = WeatherRouter.getCurrentWeather(lat: lat, lon: lon)
@@ -91,6 +100,14 @@ final class MainViewModel: NSObject {
 
 extension MainViewModel: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.first {
+            self.currentLocation = currentLocation
+            locationManager.stopUpdatingLocation()
+            requestWeatherForLocation(currentLocation)
+        }
+    }
+    
     private func requestWeatherForLocation(_ location: CLLocation) {
         let lon = location.coordinate.longitude
         let lat = location.coordinate.latitude
@@ -106,13 +123,5 @@ extension MainViewModel: CLLocationManagerDelegate {
         }
         
         getCurrentWeather(String(lat), String(lon))
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let currentLocation = locations.first {
-            self.currentLocation = currentLocation
-            locationManager.stopUpdatingLocation()
-            requestWeatherForLocation(currentLocation)
-        }
     }
 }

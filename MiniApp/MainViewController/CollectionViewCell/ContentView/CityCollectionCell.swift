@@ -9,18 +9,17 @@ import UIKit
 
 final class CityCollectionCell: UICollectionViewCell {
     
+    // MARK: - Internal properties
+    
     static let identifire = "MainCollectionViewCell"
+    
+    // MARK: - Private properties
+    
     weak var delegate: CustomCellDelegate?
     var selectedAnswer: ((String?) -> Void)?
     
     private var labelBottomAnchor: NSLayoutConstraint?
     private var labelHeightAnchor: NSLayoutConstraint?
-    
-    override var isSelected: Bool {
-        didSet {
-            updateCell()
-        }
-    }
     
     private lazy var cellHeader: UIView = {
         let view = UIView()
@@ -65,6 +64,12 @@ final class CityCollectionCell: UICollectionViewCell {
         return button
     }()
     
+    override var isSelected: Bool {
+        didSet {
+            updateCell()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -81,6 +86,8 @@ final class CityCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Internal Methods
+    
     func configure(with viewModel: MainCellModel?) {
         titleLabel.text = viewModel?.type?.title
         let data = viewModel?.data
@@ -90,6 +97,8 @@ final class CityCollectionCell: UICollectionViewCell {
         default: break
         }
     }
+    
+    // MARK: - Private Methods
     
     private func setupViews() {
         self.contentView.addSubview(cellHeader)

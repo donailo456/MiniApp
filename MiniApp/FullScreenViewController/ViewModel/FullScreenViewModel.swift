@@ -8,12 +8,17 @@
 import UIKit
 
 final class FullScreenViewModel: NSObject {
+    
+    // MARK: - Internal properties
+    
     weak var coordinator: AppCoordinator!
     var dataMainVC: MainCellModel?
     
     init(dataMainVC: MainCellModel?) {
         self.dataMainVC = dataMainVC
     }
+    
+    // MARK: - Internal Methods
     
     func getTypeCell() -> CellType? {
         dataMainVC?.type

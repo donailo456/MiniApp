@@ -11,7 +11,11 @@ import WeatherSDK
 
 final class FullScreenViewController: UIViewController {
     
+    // MARK: - Internal properties
+    
     var viewModel: FullScreenViewModel?
+    
+    // MARK: - Private properties
     
     private lazy var weatherView: WeatherView = {
        let view = WeatherView()
@@ -44,6 +48,8 @@ final class FullScreenViewController: UIViewController {
         view.backgroundColor = UIColor.hexStringToUIColor(hex: "FFA000")
         getType()
     }
+    
+    // MARK: - Private Methods
     
     private func getType() {
         guard let type = viewModel?.getTypeCell() else { return }

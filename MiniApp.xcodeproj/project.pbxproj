@@ -160,12 +160,13 @@
 			children = (
 				E44827D92C8756A400E35A80 /* Application */,
 				E44827DE2C87570C00E35A80 /* Coordinator */,
+				E49253522C8DDD2B00549232 /* CustomObject */,
+				E49253532C8DED8500549232 /* Constants */,
 				E44827DB2C8756F200E35A80 /* MainViewController */,
 				E49253422C8CD4D700549232 /* FullScreenViewController */,
 				E44827DA2C8756B100E35A80 /* SupportingFiles */,
 				E44298392C8A2112006B30A0 /* Network */,
 				E49253262C8BA63600549232 /* Extension */,
-				E49253522C8DDD2B00549232 /* CustomObject */,
 			);
 			path = MiniApp;
 			sourceTree = "<group>";
@@ -181,7 +182,6 @@
 		E44827DA2C8756B100E35A80 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				E492532A2C8BA8DA00549232 /* Constants.swift */,
 				E44827CE2C87565700E35A80 /* Assets.xcassets */,
 				E44827D02C87565700E35A80 /* LaunchScreen.storyboard */,
 				E44827D32C87565700E35A80 /* Info.plist */,
@@ -239,8 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				E44827F92C8850D200E35A80 /* ContentView */,
-				E44827F82C8850C800E35A80 /* Type */,
 				E492534A2C8CEACC00549232 /* Delegate */,
+				E44827F82C8850C800E35A80 /* Type */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -346,6 +346,14 @@
 				E49253502C8DDD2800549232 /* FullScreenButton.swift */,
 			);
 			path = CustomObject;
+			sourceTree = "<group>";
+		};
+		E49253532C8DED8500549232 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E492532A2C8BA8DA00549232 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

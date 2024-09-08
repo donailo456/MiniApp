@@ -9,10 +9,14 @@ import UIKit
 
 final class CollectionViewAdapter: NSObject {
     
+    // MARK: - Internal properties
+    
+    var onFullScreen: ((MainCellModel?) -> Void)?
+    
     typealias DataSource = UICollectionViewDiffableDataSource<Section, MainCellModel>
     typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MainCellModel>
     
-    var onFullScreen: ((MainCellModel?) -> Void)?
+    // MARK: - Private properties
     
     private weak var collectionView: UICollectionView?
     private var cellDataSource: [MainCellModel] = []
@@ -26,6 +30,21 @@ final class CollectionViewAdapter: NSObject {
         
         setupCollectionView()
     }
+    
+    // MARK: - Internal Methods
+    
+    func reload(_ data: [MainCellModel]?) {
+        guard let data = data else { return }
+        cellDataSource = data
+        configureCollectionViewDataSource()
+        applySnapshot(data: data)
+        
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
+    }
+    
+    // MARK: - Private Methods
     
     private func setupCollectionView() {
         self.collectionView?.backgroundColor = UIColor.hexStringToUIColor(hex: "FFA000")
@@ -46,17 +65,6 @@ final class CollectionViewAdapter: NSObject {
     
         
         dataSource?.apply(snapshot, animatingDifferences: false)
-    }
-    
-    func reload(_ data: [MainCellModel]?) {
-        guard let data = data else { return }
-        cellDataSource = data
-        configureCollectionViewDataSource()
-        applySnapshot(data: data)
-        
-        DispatchQueue.main.async {
-            self.collectionView?.reloadData()
-        }
     }
 }
 

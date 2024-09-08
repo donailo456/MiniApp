@@ -9,7 +9,11 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
+    // MARK: - Internal properties
+    
     var viewModel: MainViewModel?
+    
+    // MARK: - Private properties
     
     private lazy var adapter = CollectionViewAdapter(collectionView: mainCollectionView)
     private lazy var mainCollectionView: UICollectionView = {
@@ -33,9 +37,10 @@ final class MainViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
-        mainCollectionView.collectionViewLayout.invalidateLayout()  // Пересчитываем макет коллекции при изменении ориентации
+        mainCollectionView.collectionViewLayout.invalidateLayout()
     }
+    
+    // MARK: - Private Methods
     
     private func addViews() {
         view.addSubview(mainCollectionView)
@@ -61,7 +66,6 @@ final class MainViewController: UIViewController {
             guard let data = data else { return }
             self?.viewModel?.showFullScreenVC(data: data)
         }
-        
     }
 }
 

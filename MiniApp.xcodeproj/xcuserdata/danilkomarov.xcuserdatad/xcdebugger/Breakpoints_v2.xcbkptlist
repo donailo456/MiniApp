@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA3C6E2D-3014-481B-8A2B-0D15DF7B1DDC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "reload(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BA3C6E2D-3014-481B-8A2B-0D15DF7B1DDC - 36ca4c36f584b890"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MiniApp.CollectionViewAdapter.reload(Swift.Optional&lt;Swift.Array&lt;MiniApp.MainCellModel&gt;&gt;) -&gt; ()"
-                  moduleName = "MiniApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "BA3C6E2D-3014-481B-8A2B-0D15DF7B1DDC - 36ca4c36f584b890"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MiniApp.CollectionViewAdapter.reload(Swift.Optional&lt;Swift.Array&lt;MiniApp.MainCellModel&gt;&gt;) -&gt; ()"
-                  moduleName = "MiniApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danilkomarov/Desktop/Project/MiniApp/MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "300">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0C76A224-92A8-4B0D-A660-FDAD124DF7F5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,8 +30,8 @@
             filePath = "MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "configureCollectionViewDataSource()"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +46,8 @@
             filePath = "MiniApp/MainViewController/Adapter/CollectionViewAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "configureCollectionViewDataSource()"
             landmarkType = "7">
          </BreakpointContent>

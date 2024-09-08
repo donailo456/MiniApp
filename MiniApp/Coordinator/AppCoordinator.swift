@@ -9,6 +9,8 @@ import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
     
+    // MARK: - Internal properties
+    
     var parentCoordinator: CoordinatorProtocol?
     var childer: [CoordinatorProtocol] = []
     var navigationController: UINavigationController
@@ -17,15 +19,24 @@ final class AppCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
     }
     
+    // MARK: - Internal Methods
+    
     func start() {
         debugPrint("Start Coordinator")
         showMainVC()
     }
     
-    func startFullSreenView() {
-        debugPrint("Start FullSreenView")
-//        showFullScreenVC()
+    func showFullScreenVC(data: MainCellModel) {
+        let fullVC = FullScreenViewController()
+        let fullViewModel = FullScreenViewModel.init(dataMainVC: data)
+        
+        fullViewModel.coordinator = self
+        fullVC.viewModel = fullViewModel
+        
+        navigationController.pushViewController(fullVC, animated: true)
     }
+    
+    // MARK: - Private Methods
     
     private func showMainVC() {
         let mainVC = MainViewController()
@@ -38,15 +49,5 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "FFA000")
         navigationController.pushViewController(mainVC, animated: true)
         
-    }
-    
-    func showFullScreenVC(data: MainCellModel) {
-        let fullVC = FullScreenViewController()
-        let fullViewModel = FullScreenViewModel.init(dataMainVC: data)
-        
-        fullViewModel.coordinator = self
-        fullVC.viewModel = fullViewModel
-        
-        navigationController.pushViewController(fullVC, animated: true)
     }
 }
