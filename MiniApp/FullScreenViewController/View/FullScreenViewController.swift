@@ -15,6 +15,7 @@ final class FullScreenViewController: UIViewController {
     
     private lazy var weatherView: WeatherView = {
        let view = WeatherView()
+        view.setupFullScreenView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -26,19 +27,32 @@ final class FullScreenViewController: UIViewController {
         return view
     }()
     
+    private lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .black
+        label.text = "Москва"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: "FFA000")
         getType()
     }
     
     private func getType() {
-        guard let type = viewModel?.mapType() else { return }
+        guard let type = viewModel?.getTypeCell() else { return }
         switch type {
         case .weatherCell:
             addView(sabview: weatherView)
+            setData()
         case .cityCell:
-            debugPrint("City")
+            addView(sabview: cityLabel)
+            setData()
         case .ticTacToeCell:
             addView(sabview: ticTacToeView)
         }
@@ -55,6 +69,21 @@ final class FullScreenViewController: UIViewController {
             sabview.widthAnchor.constraint(equalToConstant: view.bounds.width - 10),
         ])
     }
-
+    
+    private func setData() {
+        guard let data = viewModel?.getDataCell() else { return }
+        switch data {
+        case .city(let cityData):
+            cityLabel.text = cityData.city
+        case .weather(let weatherData):
+            let temp = weatherData.temp
+            let description = weatherData.description
+            let city = weatherData.city
+            let maxTemp = weatherData.maxTemp
+            let minTemp = weatherData.minTemp
+            weatherView.updateWeatherDisplay(temperature: temp ?? 0.0, description: description ?? "", city: city ?? "")
+            weatherView.updateTemp(maxTemp: maxTemp ?? 0.0, minTemp: minTemp ?? 0.0)
+        }
+    }
     
 }

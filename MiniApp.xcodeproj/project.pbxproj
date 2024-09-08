@@ -37,6 +37,7 @@
 		E49253412C8CD4D400549232 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253402C8CD4D400549232 /* FullScreenViewController.swift */; };
 		E49253462C8CD50000549232 /* FullScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253452C8CD50000549232 /* FullScreenViewModel.swift */; };
 		E49253492C8CEAC900549232 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49253482C8CEAC900549232 /* CustomCellDelegate.swift */; };
+		E492534C2C8DBBCE00549232 /* ExtensionCollor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492534B2C8DBBCE00549232 /* ExtensionCollor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		E49253402C8CD4D400549232 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		E49253452C8CD50000549232 /* FullScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewModel.swift; sourceTree = "<group>"; };
 		E49253482C8CEAC900549232 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
+		E492534B2C8DBBCE00549232 /* ExtensionCollor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +159,10 @@
 				E44827D92C8756A400E35A80 /* Application */,
 				E44827DE2C87570C00E35A80 /* Coordinator */,
 				E44827DB2C8756F200E35A80 /* MainViewController */,
+				E49253422C8CD4D700549232 /* FullScreenViewController */,
 				E44827DA2C8756B100E35A80 /* SupportingFiles */,
 				E44298392C8A2112006B30A0 /* Network */,
 				E49253262C8BA63600549232 /* Extension */,
-				E49253422C8CD4D700549232 /* FullScreenViewController */,
 			);
 			path = MiniApp;
 			sourceTree = "<group>";
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				E49253242C8BA61500549232 /* ExtensionCell.swift */,
+				E492534B2C8DBBCE00549232 /* ExtensionCollor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E492534C2C8DBBCE00549232 /* ExtensionCollor.swift in Sources */,
 				E44827E62C8757DE00E35A80 /* CollectionViewAdapter.swift in Sources */,
 				E492532B2C8BA8DA00549232 /* Constants.swift in Sources */,
 				E442983D2C8A2173006B30A0 /* CurrentWeather.swift in Sources */,

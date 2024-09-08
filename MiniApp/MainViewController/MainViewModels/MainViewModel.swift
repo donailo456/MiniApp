@@ -19,6 +19,7 @@ final class MainViewModel: NSObject {
     private let locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private let geoCoder = CLGeocoder()
+    private let possibleTypes: [CellType] = [.ticTacToeCell, .weatherCell, .cityCell]
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -27,16 +28,10 @@ final class MainViewModel: NSObject {
     func dataRelaod() {
         setupLocation()
         
-        dataSource.append(MainCellModel(type: .ticTacToeCell, title: "Крестики/Нолики", data: nil))
-        dataSource.append(MainCellModel(type: .weatherCell, title: "Погода", data: nil))
-        dataSource.append(MainCellModel(type: .cityCell, title: "Текущий город", data: nil))
-        dataSource.append(MainCellModel(type: .ticTacToeCell, title: "Крестики/Нолики", data: nil))
-        dataSource.append(MainCellModel(type: .weatherCell, title: "Погода", data: nil))
-        dataSource.append(MainCellModel(type: .ticTacToeCell, title: "Крестики/Нолики", data: nil))
-        dataSource.append(MainCellModel(type: .cityCell, title: "Текущий город", data: nil))
-        dataSource.append(MainCellModel(type: .cityCell, title: "Текущий город", data: nil))
-        dataSource.append(MainCellModel(type: .ticTacToeCell, title: "Крестики/Нолики", data: nil))
-        dataSource.append(MainCellModel(type: .weatherCell, title: "Погода", data: nil))
+        for _ in 0..<10 {
+            let randomType = possibleTypes.randomElement() ?? .ticTacToeCell
+            dataSource.append(MainCellModel(type: randomType, data: nil))
+        }
         
         DispatchQueue.main.async {
             self.onDataReload?(self.dataSource)
@@ -44,7 +39,6 @@ final class MainViewModel: NSObject {
     }
     
     func showFullScreenVC(data: MainCellModel) {
-//        coordinator.startFullSreenView()
         coordinator.showFullScreenVC(data: data)
     }
     
@@ -68,8 +62,10 @@ final class MainViewModel: NSObject {
         let temp = data.main?.temp
         let description = data.weather?.first?.description
         let city = data.name
+        let maxTemp = data.main?.temp_max
+        let minTemp = data.main?.temp_min
         
-        let weatherModel = WeatherCellModel(temp: temp, description: description, city: city)
+        let weatherModel = WeatherCellModel(temp: temp, description: description, city: city, maxTemp: maxTemp, minTemp: minTemp)
         let cityModel = CityCellModel(city: city)
         
         for i in 0..<dataSource.count {

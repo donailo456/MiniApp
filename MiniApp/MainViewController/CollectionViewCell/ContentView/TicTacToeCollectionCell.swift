@@ -73,7 +73,7 @@ final class TicTacToeCollectionCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: MainCellModel?) {
-        titleLabel.text = viewModel?.title
+        titleLabel.text = viewModel?.type?.title
     }
     
     private func setupViews() {

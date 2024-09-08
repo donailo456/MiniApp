@@ -82,13 +82,12 @@ final class CityCollectionCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: MainCellModel?) {
-        titleLabel.text = viewModel?.title
+        titleLabel.text = viewModel?.type?.title
         let data = viewModel?.data
         switch data {
         case .city(let cityModel):
             cityLabel.text = cityModel.city
-        default:
-            debugPrint("")
+        default: break
         }
     }
     

@@ -7,8 +7,19 @@
 
 import UIKit
 
-enum CellType: Int, CaseIterable {
+enum CellType: String, CaseIterable {
     case cityCell
     case weatherCell
     case ticTacToeCell
+    
+    var title: String {
+        switch self {
+        case .ticTacToeCell:
+            return "Крестики/Нолики"
+        case .weatherCell:
+            return "Погода"
+        case .cityCell:
+            return "Текущий город"
+        }
+    }
 }

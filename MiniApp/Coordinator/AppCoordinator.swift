@@ -35,7 +35,9 @@ final class AppCoordinator: CoordinatorProtocol {
         mainViewModel.coordinator = self
         mainVC.viewModel = mainViewModel
         
+        navigationController.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "FFA000")
         navigationController.pushViewController(mainVC, animated: true)
+        
     }
     
     func showFullScreenVC(data: MainCellModel) {

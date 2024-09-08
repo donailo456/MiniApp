@@ -28,7 +28,7 @@ final class CollectionViewAdapter: NSObject {
     }
     
     private func setupCollectionView() {
-        self.collectionView?.backgroundColor = .white
+        self.collectionView?.backgroundColor = UIColor.hexStringToUIColor(hex: "FFA000")
         self.collectionView?.delegate = self
         registerCell()
     }

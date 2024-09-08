@@ -15,7 +15,11 @@ final class FullScreenViewModel: NSObject {
         self.dataMainVC = dataMainVC
     }
     
-    func mapType() -> CellType? {
-        return dataMainVC?.type
+    func getTypeCell() -> CellType? {
+        dataMainVC?.type
+    }
+    
+    func getDataCell() -> CellDataType? {
+        dataMainVC?.data
     }
 }

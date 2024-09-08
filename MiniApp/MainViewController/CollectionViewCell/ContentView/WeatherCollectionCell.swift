@@ -72,13 +72,12 @@ final class WeatherCollectionCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: MainCellModel?) {
-        titleLabel.text = viewModel?.title
+        titleLabel.text = viewModel?.type?.title
         if let data = viewModel?.data {
             switch data {
             case .weather(let weatherData):
-                weatherView.updateWeatherDisplay(temperature: Int(weatherData.temp ?? 0.0), description: weatherData.description ?? "", city: weatherData.city ?? "")
-            default:
-                debugPrint("")
+                weatherView.updateWeatherDisplay(temperature: weatherData.temp ?? 0.0, description: weatherData.description ?? "", city: weatherData.city ?? "")
+            default: break
             }
         }
     }
@@ -128,8 +127,6 @@ final class WeatherCollectionCell: UICollectionViewCell {
     private func updateCell() {
         weatherViewBottomAncor?.isActive = isSelected
         weatherViewHeightAncor?.isActive = isSelected
-        
-        weatherView.setActiveConstraint(isSelected: !isSelected)
     }
     
     private func setTarget() {

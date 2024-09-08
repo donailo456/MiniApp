@@ -7,8 +7,6 @@
 
 import UIKit
 
-protocol CellProtocol: Hashable {}
-
 enum CellDataType: Hashable {
     case weather(WeatherCellModel)
     case city(CityCellModel)
@@ -17,7 +15,6 @@ enum CellDataType: Hashable {
 struct MainCellModel: Hashable {
     let id = UUID()
     var type: CellType?
-    var title: String?
     var data: CellDataType?
 }
 
@@ -25,6 +22,8 @@ struct WeatherCellModel: Hashable {
     var temp: Double?
     var description: String?
     var city: String?
+    var maxTemp: Double?
+    var minTemp: Double?
 }
 
 struct CityCellModel: Hashable {
