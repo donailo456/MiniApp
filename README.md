@@ -21,6 +21,10 @@
 - В игре "Крестики-Нолики" могут играть два человека друг против друга. Когда один из игроков побеждает, игра заканчивается и начинается заново.
 - Мини-приложения оформлены в виде собственного SDK и установлены через Swift Package Manager.
 
+## Screencast
+
+<img src="https://s1.gifyu.com/images/S1QCB.gif" width="250px" alt="all"> <img src="https://s11.gifyu.com/images/S1QFL.gif" width="250px" alt="all">
+
 ## Архитектура проекта
 - MVVM
 
@@ -40,6 +44,3 @@
     git clone https://github.com/donailo456/MiniApp.git
     cmd+r в Xcode 
 ```
-
-## Screencast
-![all](https://s1.gifyu.com/images/S1QCB.gif)  ![cell](https://s11.gifyu.com/images/S1QFL.gif)
